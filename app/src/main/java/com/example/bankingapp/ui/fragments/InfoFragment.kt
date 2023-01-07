@@ -58,14 +58,15 @@ class InfoFragment : Fragment() {
            // val newTransfer=Transfer(args.currentClient.name,view.ed_transfer.text.toString())
          //   viewModel.addNewTransfer(newTransfer)
             alertDialog.dismiss()
+            val transferAmount = view.ed_transfer.text.toString().toIntOrNull() ?: 0
 
-            val sharedPreferences = requireContext().getSharedPreferences("DataOfUser", MODE_PRIVATE)
-            val editor = sharedPreferences.edit()
-           editor.putString("fromClient",args.currentClient.name)
-            editor.putString("fromClientBalance",view.ed_transfer.text.toString())
-            editor.apply()
            // Toast.makeText(requireActivity(),"Successful Transfer",Toast.LENGTH_LONG).show()
-            findNavController().navigate(R.id.action_infoFragment_to_selectClientFragment2)
+            findNavController().navigate(
+                InfoFragmentDirections.actionInfoFragmentToSelectClientFragment2(
+                    args.currentClient,
+                    transferAmount
+                )
+            )
         }
     }
 }

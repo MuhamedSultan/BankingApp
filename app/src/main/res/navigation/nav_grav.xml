@@ -44,11 +44,12 @@
             app:destination="@id/clientsragment" />
         <argument
             android:name="toClient"
-            app:argType="com.example.bankingapp.models.Clients"
-            app:nullable="true"
-            android:defaultValue="@null" />
+            app:argType="com.example.bankingapp.models.Clients" />
         <action
             android:id="@+id/action_selectClientFragment_to_transferListFragment"
             app:destination="@id/transferListFragment" />
+        <argument
+            android:name="transferAmount"
+            app:argType="integer" />
     </fragment>
 </navigation>
