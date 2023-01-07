@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_grav"
+    app:startDestination="@id/clientsragment">
+
+    <fragment
+        android:id="@+id/clientsragment"
+        android:name="com.example.bankingapp.ui.fragments.ClientsFragment"
+        android:label="fragment_clientsragment"
+        tools:layout="@layout/fragment_clientsragment" >
+        <action
+            android:id="@+id/action_clientsragment_to_infoFragment"
+            app:destination="@id/infoFragment" />
+        <action
+            android:id="@+id/action_clientsragment_to_transferListFragment"
+            app:destination="@id/transferListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/infoFragment"
+        android:name="com.example.bankingapp.ui.fragments.InfoFragment"
+        android:label="fragment_info"
+        tools:layout="@layout/fragment_info" >
+        <argument
+            android:name="currentClient"
+            app:argType="com.example.bankingapp.models.Clients" />
+        <action
+            android:id="@+id/action_infoFragment_to_selectClientFragment2"
+            app:destination="@id/selectClientFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/transferListFragment"
+        android:name="com.example.bankingapp.ui.fragments.TransferListFragment"
+        android:label="fragment_transfer_list"
+        tools:layout="@layout/fragment_transfer_list" />
+    <fragment
+        android:id="@+id/selectClientFragment"
+        android:name="com.example.bankingapp.ui.fragments.SelectClientFragment"
+        android:label="fragment_select_client"
+        tools:layout="@layout/fragment_select_client" >
+        <action
+            android:id="@+id/action_selectClientFragment_to_clientsragment2"
+            app:destination="@id/clientsragment" />
+        <argument
+            android:name="toClient"
+            app:argType="com.example.bankingapp.models.Clients"
+            app:nullable="true"
+            android:defaultValue="@null" />
+        <action
+            android:id="@+id/action_selectClientFragment_to_transferListFragment"
+            app:destination="@id/transferListFragment" />
+    </fragment>
+</navigation>
