@@ -50,11 +50,26 @@ class MainActivity : AppCompatActivity() {
                         "Khaled", "Khaled@gmail.com", "30000",
                         "01286959815", "141854"
                     ), Clients(
-                        "Ali", "Ali@gmail.com", "100000",
+                        "Ali", "Ali@gmail.com", "10000",
                         "01185929810", "543850"
                     ), Clients(
-                        "Sameh", "Sameh@gmail.com", "800000",
+                        "Sameh", "Sameh@gmail.com", "80000",
                         "01585917830", "243731"
+                    ),Clients(
+                        "Hazim", "Hazem@gmail.com", "90000",
+                        "01184327830", "290739"
+                    ),Clients(
+                        "Ebrahim", "Ebrahim@gmail.com", "50000",
+                        "01284915633", "569834"
+                    ),Clients(
+                        "Karim", "Karim@gmail.com", "20000",
+                        "01550439220", "158736"
+                    ),Clients(
+                        "Yousef", "Yousef@gmail.com", "60000",
+                        "01086812323", "142368"
+                    ),Clients(
+                        "Ahmed", "Ahmed@gmail.com", "50000",
+                        "0100050342902", "753439"
                     )
                 )
             )

@@ -41,31 +41,32 @@ class SelectClientFragment : Fragment() {
             val fromClient = args.toClient
             val transferAmount = args.transferAmount
 
-            val newTransfer = Transfer(
-                fromClient.name.orEmpty(),
-                selectedClient.name!!,
-                transferAmount.toString()
-            )
-            viewModel.addNewTransfer(newTransfer)
+                val newTransfer = Transfer(
+                    fromClient.name.orEmpty(),
+                    selectedClient.name!!,
+                    transferAmount.toString()
+                )
+                viewModel.addNewTransfer(newTransfer)
 
-            // Update fromClient
-            fromClient.currentBalance?.toIntOrNull()?.let { fromClientBalance ->
-                val updatedFromClientBalance = fromClientBalance - transferAmount
-                fromClient.currentBalance = updatedFromClientBalance.toString()
+                // Update fromClient
+                fromClient.currentBalance?.toIntOrNull()?.let { fromClientBalance ->
+                    val updatedFromClientBalance = fromClientBalance - transferAmount
+                    fromClient.currentBalance = updatedFromClientBalance.toString()
+                }
+                viewModel.updateClient(fromClient)
+
+                // Update toClient
+                selectedClient.currentBalance?.toIntOrNull()?.let { selectedClientBalance ->
+                    val updatedSelectedClientBalance = selectedClientBalance + transferAmount
+                    selectedClient.currentBalance = updatedSelectedClientBalance.toString()
+                }
+                viewModel.updateClient(selectedClient)
+
+                Toast.makeText(requireContext(), "Successful Transfer", Toast.LENGTH_LONG).show()
+
+               // findNavController().popBackStack(R.id.clientsragment, true)
+                findNavController().navigate(R.id.action_selectClientFragment_to_clientsragment2)
             }
-            viewModel.updateClient(fromClient)
-
-            // Update toClient
-            selectedClient.currentBalance?.toIntOrNull()?.let { selectedClientBalance ->
-                val updatedSelectedClientBalance = selectedClientBalance + transferAmount
-                selectedClient.currentBalance = updatedSelectedClientBalance.toString()
-            }
-            viewModel.updateClient(selectedClient)
-
-            Toast.makeText(requireContext(), "Successful Transfer", Toast.LENGTH_LONG).show()
-
-            findNavController().popBackStack(R.id.clientsragment, true)
-        }
 
         return binding.root
     }
