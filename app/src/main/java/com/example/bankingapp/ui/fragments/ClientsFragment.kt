@@ -22,6 +22,7 @@ class ClientsFragment : Fragment() {
     ): View {
         binding=FragmentClientsragmentBinding.inflate(layoutInflater)
         viewModel=ViewModelProvider(this)[ClientsViewModel::class.java]
+        viewModel.setUpFirstTime(requireContext())
 
         val adapter = ClientsAdapter()
         binding.clientsRecycler.let {

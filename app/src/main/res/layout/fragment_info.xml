@@ -92,7 +92,7 @@
         android:id="@+id/transfer_money"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="68dp"
+        android:layout_marginBottom="36dp"
         android:text="Transfer Money"
         android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"

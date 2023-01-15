@@ -12,7 +12,7 @@ import com.example.bankingapp.models.Transfer
 interface ClientsDao {
 
     @Insert
-    suspend fun addClient(clients: List<Clients>)
+    suspend fun addClient(clients: kotlin.collections.List<com.example.bankingapp.models.Clients>)
 
     @Query("select * from clients_table order by id asc")
     fun getAllClients(): LiveData<List<Clients>>

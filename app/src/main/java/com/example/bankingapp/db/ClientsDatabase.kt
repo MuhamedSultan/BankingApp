@@ -8,7 +8,7 @@ import com.example.bankingapp.models.Clients
 import com.example.bankingapp.models.Transfer
 
 
-@Database(entities = [Clients::class,Transfer::class], version =35)
+@Database(entities = [Clients::class,Transfer::class], version =1)
 
 abstract class ClientsDatabase : RoomDatabase() {
 

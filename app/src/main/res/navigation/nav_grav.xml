@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/clientsragment"
         android:name="com.example.bankingapp.ui.fragments.ClientsFragment"
-        android:label="fragment_clientsragment"
+        android:label="Clients"
         tools:layout="@layout/fragment_clientsragment" >
         <action
             android:id="@+id/action_clientsragment_to_infoFragment"
@@ -20,7 +20,7 @@
     <fragment
         android:id="@+id/infoFragment"
         android:name="com.example.bankingapp.ui.fragments.InfoFragment"
-        android:label="fragment_info"
+        android:label="ClientsInfo"
         tools:layout="@layout/fragment_info" >
         <argument
             android:name="currentClient"
@@ -32,12 +32,12 @@
     <fragment
         android:id="@+id/transferListFragment"
         android:name="com.example.bankingapp.ui.fragments.TransferListFragment"
-        android:label="fragment_transfer_list"
+        android:label="TransferList"
         tools:layout="@layout/fragment_transfer_list" />
     <fragment
         android:id="@+id/selectClientFragment"
         android:name="com.example.bankingapp.ui.fragments.SelectClientFragment"
-        android:label="fragment_select_client"
+        android:label="SelectClient"
         tools:layout="@layout/fragment_select_client" >
         <action
             android:id="@+id/action_selectClientFragment_to_clientsragment2"
@@ -45,9 +45,6 @@
         <argument
             android:name="toClient"
             app:argType="com.example.bankingapp.models.Clients" />
-        <action
-            android:id="@+id/action_selectClientFragment_to_transferListFragment"
-            app:destination="@id/transferListFragment" />
         <argument
             android:name="transferAmount"
             app:argType="integer" />

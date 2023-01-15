@@ -22,8 +22,7 @@ class InfoFragment : Fragment() {
     private lateinit var viewModel: ClientsViewModel
     private val args by navArgs<InfoFragmentArgs>()
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         binding = FragmentInfoBinding.inflate(layoutInflater)
         viewModel = ViewModelProvider(this)[ClientsViewModel::class.java]
@@ -55,8 +54,13 @@ class InfoFragment : Fragment() {
             // val newTransfer=Transfer(args.currentClient.name,view.ed_transfer.text.toString())
             //   viewModel.addNewTransfer(newTransfer)
             val transferAmount = view.ed_transfer.text.toString().toIntOrNull() ?: 0
-            if (transferAmount.toString().toInt() > args.currentClient.currentBalance.toString()
-                    .toInt()
+            if (transferAmount == 0) {
+
+                Toast.makeText(requireContext(), "Please enter valid amount", Toast.LENGTH_LONG)
+                    .show()
+
+            } else if (transferAmount.toString()
+                    .toInt() > args.currentClient.currentBalance.toString().toInt()
             ) {
                 Toast.makeText(requireContext(), "Your balance Not enough", Toast.LENGTH_LONG)
                     .show()
@@ -67,8 +71,7 @@ class InfoFragment : Fragment() {
                 // Toast.makeText(requireActivity(),"Successful Transfer",Toast.LENGTH_LONG).show()
                 findNavController().navigate(
                     InfoFragmentDirections.actionInfoFragmentToSelectClientFragment2(
-                        args.currentClient,
-                        transferAmount
+                        args.currentClient, transferAmount
                     )
                 )
             }
